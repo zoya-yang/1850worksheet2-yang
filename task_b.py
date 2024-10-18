@@ -1,20 +1,10 @@
-grade_input = input("Please enter your grade (0 - 100): ")
-if not grade_input.isdigit():
-    print("Error: Please enter a number")
+password = input("Please enter a password: ")
+
+is_long_enough = len(password) >= 8 
+contains_letter = any(char.isalpha() for char in password)  
+contains_number = any(char.isdigit() for char in password)  
+
+if is_long_enough and contains_letter and contains_number:
+    print("Your password is valid")
 else:
-    grade = int(grade_input)
-    if grade < 0 or grade > 100:
-        print("Error:Grades must be between 0 abd 100")
-    else:
-        if 80 <= grade <= 100:
-            letter_grade = 'A'
-        elif 60 <= grade <= 79:
-            letter_grade = 'B'
-        elif 50 <= grade <= 59:
-            letter_grade = 'C'
-        elif 40 <= grade <= 49:
-            letter_grade = 'D'
-        else:
-            letter_grade = 'F'
-        
-        print(f"Your grade is:{letter_grade}")
+    print("Your password must contain at least 8 characters, and a mix of letters and numbers")
