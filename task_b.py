@@ -1,10 +1,23 @@
-password = input("Please enter a password: ")
+grade_input = input("Please enter your grade (0 - 100): ")
+try:
+    grade = float(grade_input)  # Use float to allow decimal grades
+except ValueError:
+    print("Error: Please enter a number")
+    exit()  
 
-is_long_enough = len(password) >= 8 
-contains_letter = any(char.isalpha() for char in password)
-contains_number = any(char.isdigit() for char in password)
+if grade < 0 or grade > 100:
+    print("Error: Grades must be between 0 and 100")
+    exit() 
 
-if is_long_enough and contains_letter and contains_number:
-    print("Your password is valid")
+if 80 <= grade <= 100:
+    letter_grade = 'A'
+elif 60 <= grade < 80:
+    letter_grade = 'B'
+elif 50 <= grade < 60:
+    letter_grade = 'C'
+elif 40 <= grade < 50:
+    letter_grade = 'D'
 else:
-    print("Your password must contain at least 8 characters, and a mix of letters and numbers")
+    letter_grade = 'F'
+
+print(f"Your grade is: {letter_grade}")
