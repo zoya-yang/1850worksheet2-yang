@@ -11,7 +11,7 @@ else:
         elif 60 <= grade <= 79:
             letter_grade = 'B'
         elif 50 <= grade <= 59:
-            letter_garde = 'C'
+            letter_grade = 'C'
         elif 40 <= grade <= 49:
             letter_grade = 'D'
         else:
